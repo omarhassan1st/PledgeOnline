@@ -1,0 +1,23 @@
+{
+  "ConnectionStrings": {
+    "WebSite": "Server=.\\SQLEXPRESS; Database=WebSite_Sro;User Id=sa; Password=123456;",
+    "Account": "Server=.\\SQLEXPRESS; Database=SRO_VT_ACCOUNT;User Id=sa; Password=123456;",
+    "Shard": "Server=.\\SQLEXPRESS; Database=SRO_VT_SHARD;User Id=sa; Password=123456;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "EmailSettings": {
+    "Email": {
+      "Host": "smtp.gmail.com",
+      "Port": "587",
+      "ID": "omarhassan1st@gmail.com",
+      "PW": "RealComment000St"
+    }
+  },
+  "AllowedHosts": "*"
+}
