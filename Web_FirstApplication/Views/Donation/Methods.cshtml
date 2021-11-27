@@ -1,0 +1,28 @@
+﻿@model Donation
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Donation";
+}
+
+<h4>Donation Methouds</h4>
+<hr />
+
+<div class="payment-methods">
+    @{
+        if (false)
+        {
+            <div class="payment-coffe">
+                <a href="@Model.coffe.Path" target="_blank">Buy me a Cofe</a>
+            </div>
+        }
+    }
+    <div class="payment-wall">
+        <h3>Paymentwall</h3><br>
+        <p>Once you donate will get your credits instantly</p>.<hr>
+        <iframe src="https://api.paymentwall.com/api/ps/?key=13cf3b6e4f2a2784bebd7e94f2241d1d&uid=@UserManager.GetUserName(User)&widget=pw_1&email=@UserManager.GetUserAsync(User).Result?.Email&history[registration_date]=@DateTime.Now" style="width:100%; height:505px;" frameborder="0"></iframe>
+    </div>
+</div>
+

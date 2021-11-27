@@ -1,0 +1,46 @@
+﻿@model IEnumerable<_TrainingCampMember>
+@{
+    ViewData["Title"] = "Top Honor";
+}
+
+<h1 class="page-header">Top Honor</h1>
+<hr />
+
+<form method="post" asp-area="" asp-controller="Ranking" asp-action="TopHonor">
+    <div class="mb-3">
+        <label for="HonorName" class="form-label d-block">Char Name</label>
+        <input type="text" name="CharName" value ="@TempData["CharName"]" class="form-control w-25 d-inline" id="HonorName">
+      <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+</form>
+
+<div class="row p-lg-2 ranking-tables">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">CHARACTER</th>
+                <th scope="col">GUILD</th>
+                <th scope="col">RANK</th>
+                <th scope="col">GRADUATES</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (_TrainingCampMember Honor in Model)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@Honor.CharName</td>
+                        <td>@Honor.GuildName</td>
+                        <td>@i</td>
+                        <td>@Honor.HonorPoint</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

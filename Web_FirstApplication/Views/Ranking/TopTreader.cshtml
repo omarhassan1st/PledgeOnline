@@ -1,0 +1,44 @@
+﻿@model IEnumerable<_CharTrijob>
+@{
+    ViewData["Title"] = "Top Treader";
+}
+
+<h1 class="page-header">Top Treader</h1>
+<hr />
+
+<form method="post" asp-area="" asp-controller="Ranking" asp-action="TopTreader">
+    <div class="mb-3">
+        <label for="TreaderName" class="form-label d-block">Treader Name</label>
+        <input type="text" name="TreaderName" value="@TempData["TreaderName"]" class="form-control w-25 d-inline" id="TreaderName">
+      <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+</form>
+
+<div class="row p-lg-2 ranking-tables">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">CHARACTER</th>
+                <th scope="col">LEVEL</th>
+                <th scope="col">EXP</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (_CharTrijob Treader in Model)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@Treader.CharName</td>
+                        <td>@Treader.Level</td>
+                        <td>@Treader.Exp</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Links";
+}
+
+<h1 class="page-header">Download</h1>
+<hr />
+
+<div class="row">
+    @{
+        IEnumerable<DownloadLink> DownloadLinks =
+        ViewData["DownloadLinks"] as IEnumerable<DownloadLink>;
+        IEnumerable<DownloadRequiredment> DownloadRequiredments =
+        ViewData["DownloadRequiredments"] as IEnumerable<DownloadRequiredment>;
+
+        foreach (DownloadLink Link in DownloadLinks)
+        {
+            <div class="col-3">
+                <div class="download-links">
+                    <img src="~/images/@Link.ImgPath">
+                    <h5>@Link.Title</h5>
+                    <span>@Link.Size</span>
+                    <button>Download</button>
+                </div>
+            </div>
+        }
+        <div class="row ms-lg-0 m-0">
+            <table class="table table-dark table-hover table-mobile">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">MINIMUM SPECIFICATIONS</th>
+                        <th scope="col">RECOMMENDED SPECIFICATIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (DownloadRequiredment Required in DownloadRequiredments)
+                        {
+                            <tr>
+                                <th scope="row">@Required.Id</th>
+                                <td>@Required.Name</td>
+                                <td>@Required.MINIMUM</td>
+                                <td>@Required.RECOMMENDED</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+

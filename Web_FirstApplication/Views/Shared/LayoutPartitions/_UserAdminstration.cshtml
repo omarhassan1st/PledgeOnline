@@ -1,0 +1,26 @@
+﻿@inject SignInManager<IdentityUser> SignInManager
+@using Microsoft.AspNetCore.Identity
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="aside-item">
+        <div class="aside-item-img">
+            <img src="~/images/sidebar-items-backgorund.png" alt="..." />
+        </div>
+        <div class="aside-item-caption">
+            <h5>
+                Account Information
+            </h5>
+        </div>
+        <div class="aside-item-content">
+            <ul>
+                <li>
+                    <a asp-action="Methods" asp-controller="Donation">Donate</a>
+                </li>
+                <li>
+                    <a asp-action="ChangePassword" asp-controller="Identity">Change Password</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

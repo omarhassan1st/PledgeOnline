@@ -1,0 +1,37 @@
+﻿@model IEnumerable<HomeNew>
+@{
+    ViewData["Title"] = "NEWS AND UPDATES";
+}
+<h1 class="page-header">NEWS AND UPDATES</h1>
+<hr />
+
+@{
+    foreach (HomeNew homeNews in Model)
+    {
+        <div class="row home-news">
+            <div class="home-msg">
+
+                <h5>@homeNews.Msg</h5>
+                <div class="home-msg-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <p> @homeNews.Date.ToShortDateString() </p>
+                </div>
+                <p>@homeNews.Paragraph</p>
+            </div>
+        </div>
+    }
+}
+<nav class="nav-page-count">
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a asp-area=""  asp-action="Index" asp-route-PageId="@(Convert.ToInt32(Context.Request.Query["PageId"]) - 1)" class="page-link">Previous</a></li>
+        @{
+            for (int i = 1; i <= (int)TempData["Count"]; i++)
+            {
+                <li class="page-item"><a asp-area="" asp-action="Index" asp-route-PageId="@i" class="page-link">@i</a></li>
+            }
+        }
+        <li class="page-item"><a asp-area="" asp-action="Index" asp-route-PageId="@(Convert.ToInt32(Context.Request.Query["PageId"]) + 1)" class="page-link">Next</a></li>
+    </ul>
+</nav>
+
+

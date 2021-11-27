@@ -1,0 +1,26 @@
+﻿@if (User.IsInRole("Admin"))
+{
+    <div class="aside-item">
+        <div class="aside-item-img">
+            <img src="~/images/sidebar-items-backgorund.png" alt="..." />
+        </div>
+        <div class="aside-item-caption">
+            <h5>
+                Admin Panel
+            </h5>
+        </div>
+        <div class="aside-item-content">
+            <ul>
+                <li>
+                    <a asp-area="Admin" asp-action="Index" asp-controller="Download">Download Links</a>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-action="Index" asp-controller="HomeNews">Home News</a>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-action="Index" asp-controller="Requirements">Download Requirements</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

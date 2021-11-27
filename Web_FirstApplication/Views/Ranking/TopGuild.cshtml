@@ -1,0 +1,39 @@
+﻿@model IEnumerable<_Guild>
+@{
+    ViewData["Title"] = "Top Guild";
+}
+<h1 class="page-header">Top Guild</h1>
+<hr />
+
+<form method="post" asp-area="" asp-controller="Ranking" asp-action="TopGuild">
+    <div class="mb-3">
+        <label for="guildName" class="form-label d-block">Guild Name</label>
+        <input type="text" name="guildName" value="@TempData["guildName"]" class="form-control w-25 d-inline" id="guildName">
+       <button type="submit" class="btn btn-dark">Submit</button>
+ </div>
+</form>
+<div class="row p-lg-2 ranking-tables">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">LEVEL</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (_Guild guild in Model)
+                {
+                    int i = 1;
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@guild.Name</td>
+                        <td>@guild.Lvl</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>

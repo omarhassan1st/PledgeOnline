@@ -1,0 +1,44 @@
+﻿@model IEnumerable<_CharTrijob>
+@{
+    ViewData["Title"] = "Top Hunter";
+}
+
+<h1 class="page-header">Top Hunter</h1>
+<hr />
+
+<form method="post" asp-area="" asp-controller="Ranking" asp-action="TopHunter">
+    <div class="mb-3">
+        <label for="HunterName" class="form-label d-block">Thive Name</label>
+        <input type="text" name="HunterName"  value="@TempData["HunterName"]" class="form-control w-25 d-inline" id="HunterName">
+     <button type="submit" class="btn btn-dark">Submit</button>
+   </div>
+</form>
+
+<div class="row p-lg-2 ranking-tables">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">CHARACTER</th>
+                <th scope="col">LEVEL</th>
+                <th scope="col">EXP</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (_CharTrijob Hunter in Model)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@Hunter.CharName</td>
+                        <td>@Hunter.Level</td>
+                        <td>@Hunter.Exp</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

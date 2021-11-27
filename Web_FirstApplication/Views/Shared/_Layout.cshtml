@@ -1,0 +1,214 @@
+﻿@using Web_FirstApplication.Models.ViewModel
+@inject LayoutViewModel _Layout
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebSite_Sro</title>
+
+    <!--normlize-->
+    <link rel="stylesheet" href="~/lib/normlize/normlize.css" />
+    <!--font-awesome-->
+    <link rel="stylesheet" href="~/lib/font-awesome/all.min.css" />
+    <!--bootstrap-->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <!--css-->
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <partial name="LayoutPartitions/_Header" />
+    <main class="container">
+        <div class="row">
+            <section class="col-9">
+                @RenderBody()
+            </section>
+            <aside style="margin-top:80px" class="col-3">
+                <partial name="LayoutPartitions/_AdminAdminstration" />
+                <partial name="LayoutPartitions/_UserAdminstration" />
+                <div class="aside-item">
+                    <div class="aside-item-img">
+                        <img src="~/images/sidebar-items-backgorund.png" alt="..." />
+                    </div>
+                    <div class="aside-item-caption">
+                        <h5>
+                            CAPACITY
+                        </h5>
+                    </div>
+                    <div class="aside-item-content">
+                        <ul>
+                            <li>
+                                @_Layout.Capacity /7500
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="aside-item">
+                    <div class="aside-item-img">
+                        <img src="~/images/sidebar-items-backgorund.png" alt="..." />
+                    </div>
+                    <div class="aside-item-caption">
+                        <h5>
+                            SERVER TIME
+                        </h5>
+                    </div>
+                    <div class="aside-item-content">
+                        <ul>
+                            <li>
+                                <span id="ServerTimer">@_Layout.ServerTime</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @{
+                    if (_Layout.Activites != null)
+                    {
+                        <div class="aside-item">
+                            <div class="aside-item-img">
+                                <img src="~/images/sidebar-items-backgorund.png" alt="..." />
+                            </div>
+                            <div class="aside-item-caption">
+                                <h5>
+                                    ACTIVITIES
+                                </h5>
+                            </div>
+                            <div class="aside-item-content">
+                                <ul>
+                                    @{
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.FortressWar))
+                                        {
+                                            <li>
+                                                Fortresswar:
+                                                <span id="FortressWar" class="ActivitesFixed">
+                                                    @_Layout.Activites.FortressWar
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.Register))
+                                        {
+                                            <li>
+                                                Register:
+                                                <span id="Register" class="ActivitesFixed">
+                                                    @_Layout.Activites.Register
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.BattleArena))
+                                        {
+                                            <li>
+                                                BattleArena:
+                                                <span id="BattleArena" class="Activites">
+                                                    @_Layout.Activites.BattleArena
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.AlchemyEvent))
+                                        {
+                                            <li>
+                                                AlchemyEvent:
+                                                <span id="AlchemyEvent" class="Activites">
+                                                    @_Layout.Activites.AlchemyEvent
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.LpnEvent))
+                                        {
+                                            <li>
+                                                Lpn Event:
+                                                <span id="LpnEvent" class="Activites">
+                                                    @_Layout.Activites.LpnEvent
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.UniqueMaster))
+                                        {
+                                            <li>
+                                                Unique Master:
+                                                <span id="HotanFortress" class="Activites">
+                                                    @_Layout.Activites.UniqueMaster
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.PvpMaster))
+                                        {
+                                            <li>
+                                                Pvp Master:
+                                                <span id="PvpMaster" class="Activites">
+                                                    @_Layout.Activites.PvpMaster
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.AnbiusAsis))
+                                        {
+                                            <li>
+                                                Anbius & Asis:
+                                                <span id="AnbiusAsis" class="Activites">
+                                                    @_Layout.Activites.AnbiusAsis
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.SelketNeith))
+                                        {
+                                            <li>
+                                                Selket & Neith:
+                                                <span id="SelketNeith" class="Activites">
+                                                    @_Layout.Activites.SelketNeith
+                                                </span>
+                                            </li>
+                                        }
+                                        if (!string.IsNullOrEmpty(_Layout.Activites.HonorUpdate))
+                                        {
+                                            <li>
+                                                Honor Update:
+                                                <span id="HonorUpdate" class="Activites">
+                                                    @_Layout.Activites.HonorUpdate
+                                                </span>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                }
+
+                <div class="aside-item">
+                    <div class="aside-item-img">
+                        <img src="~/images/sidebar-items-backgorund.png" alt="..." />
+                    </div>
+                    <div class="aside-item-caption">
+                        <h5>
+                            FORTRESS
+                        </h5>
+                    </div>
+                    <div class="aside-item-content">
+                        <ul>
+                            <li>
+                                Hotan Fortress:
+                                <span>
+                                    @_Layout.HotanFortress
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="aside-item">
+                    <iframe style="width:100%;height:500px" src="https://discord.com/widget?id=685953341653516304&amp;theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <partial name="LayoutPartitions/_Footer" />
+
+    <!--bootstrap-->
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <!--jquery-->
+    <script src="~/lib/jquery/jquery.js"></script>
+    <!--vue-->
+    <script src="~/lib/vue/vue.js"></script>
+    <script src="~/js/vue-plugins.js"></script>
+    <!--js-->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

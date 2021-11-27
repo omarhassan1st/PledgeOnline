@@ -1,0 +1,45 @@
+﻿<header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/kidora-logo.png" alt="kidora-logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav flex-grow-1 justify-content-end">
+                    <li class="nav-item">
+                        <a id="Home" class="nav-link Js-navHeader" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link Js-navHeader" asp-area="" asp-controller="Download" asp-action="Links">DOWNLOAD</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle Js-navHeader" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">RANKING</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TopPlayer" asp-controller="Ranking">Top Player</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TopGuild" asp-controller="Ranking">Top Guild</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TopThieves" asp-controller="Ranking">Top Thieves</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TopTreader" asp-controller="Ranking">Top Treader</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TopHunter" asp-controller="Ranking">Top Hunter</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TopHonor" asp-controller="Ranking">Top Honor</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle Js-navHeader" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ABOUT</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="TermsOfService" asp-controller="About">Terms Of Service</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="PrivacyPolicy" asp-controller="About">Privacy Policy</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="RefundPolicy" asp-controller="About">Refund Policy</a></li>
+                            <li class="li-bg"> <a class="dropdown-item" asp-area="" asp-action="ServerInformation" asp-controller="About">Server Information</a></li>
+                        </ul>
+                    </li>
+                    <partial name="LayoutPartitions/_LoginPartial" />
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="Landing">
+    </div>
+</header>
